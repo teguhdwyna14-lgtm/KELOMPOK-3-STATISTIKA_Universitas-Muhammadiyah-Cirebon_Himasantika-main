@@ -1,0 +1,41 @@
+javvscript about
+// Animasi Card Statistik Masuk
+    gsap.from(".stat-card", {
+        scale: 0.85,
+        y: 45,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "back.out(1.5)", // Memberikan efek membal halus yang modern
+        scrollTrigger: {
+            trigger: ".about-stats",
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true
+        }
+    });
+
+    // Animasi Counter Angka (0 -> Target)
+    document.querySelectorAll(".stat-angka[data-value]").forEach((el) => {
+        let targetValue = parseInt(el.getAttribute("data-value"));
+        let suffix = el.getAttribute("data-suffix") || "";
+        let counter = { val: 0 };
+
+        gsap.to(counter, {
+            val: targetValue,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".about-stats",
+                start: "top 85%",
+                toggleActions: "play none none none",
+                once: true
+            },
+            onUpdate: () => {
+                let formattedNumber = Math.floor(counter.val).toLocaleString("id-ID");
+                el.innerText = formattedNumber + suffix;
+            }
+        });
+    });
+
+    ///////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F7F1E8;
+    color: #4A4741;
+}
+
+.navbar{
+    width: 900;
+    height: 400;
+}
+
+.box-navbar{
+    background-color: #F7F1E8;
+    color: #4A4741;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.box-navbar .box:first-child{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.box-navbar ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.logo-umc{
+    width: 60px;
+    height: 60px;
+}
+
+.text-logo{
+    font-size: large;
+}
+
+section.conteiner{
+    width: 100%;
+    min-height: 100vh;
+}
+
+#home{
+    background-image: url("../assets/img/a2.jpeg");
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.text-home{
+    font-size: 14 rem;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

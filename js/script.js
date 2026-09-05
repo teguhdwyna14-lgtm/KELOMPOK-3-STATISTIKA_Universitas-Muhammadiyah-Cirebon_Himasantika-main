@@ -27,28 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
             kategori: "Kegiatan",
             tanggal: "12 agustus 2027",
             judul: "Pengabdian Desa",
-            deskripsi: "deskripsi"
+            deskripsi: "Deskripsi"
         },
         {
             gambar: "assets/img/peta adm.jpeg",
             kategori: "Kegiatan",
             tanggal: "12 agustus 2027",
             judul: "Peta Desa",
-            deskripsi: "deskripsi"
+            deskripsi: "Deskripsi"
         },
         {
             gambar: "assets/img/Seminar Nasional.jpeg",
-            kategori: "seminar",
+            kategori: "Seminar",
             tanggal: "12 agustus 2027",
             judul: "Seminar Nasional",
-            deskripsi: "deskripsi"
+            deskripsi: "Deskripsi"
         },
         {
             gambar: "assets/img/belajar.jpeg",
-            kategori: "praktek",
+            kategori: "Praktek",
             tanggal: "12 agustus 2027",
             judul: "Mahasiswa Yang Sedang Praktik Pemograman",
-            deskripsi: "deskripsi"
+            deskripsi: "Deskripsi"
         },
     ];
 
@@ -58,14 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const kotak = document.createElement("div");
             kotak.className = "kotak-berita";
             kotak.style.cursor = "pointer";
-            kotak.addEventListener("click", () => {
-                document.querySelector("#berita").style.display = "none";
-                document.querySelector("#detailBerita").style.display = "block";
-                document.querySelector("#detailGambar").src = item.gambar;
-                document.querySelector("#detailTanggal").textContent = item.tanggal;
-                document.querySelector("#detailJudul").textContent = item.judul;
-                document.querySelector("#detailDeskripsi").textContent = item.deskripsi;
-            });
 
             kotak.innerHTML = `
                 <div class="gambar-berita" style="background-image: url('${item.gambar}')">
@@ -139,6 +131,7 @@ let ctxAbout = gsap.context(() => {
                 end: "bottom top",
                 scrub: true
             }
+
         });
 
         gsap.from([".breadcrumb-about", ".banner-teks h2"], {
@@ -194,6 +187,8 @@ let ctxAbout = gsap.context(() => {
         });
     }
 
+
+
     // 4. Visi & Misi (VISI-MISI.HTML)
     if (document.querySelector(".visi-misi-grid")) {
         gsap.from(".kolom-visi > *", {
@@ -236,6 +231,8 @@ let ctxAbout = gsap.context(() => {
         });
     }
 
+
+
     // 5. Pimpinan Program Studi (PIMPINAN PRODI)
     if (document.querySelector(".struktur-prodi")) {
         gsap.utils.toArray(".item-struktur").forEach((item, i) => {
@@ -255,6 +252,8 @@ let ctxAbout = gsap.context(() => {
                 }
             });
 
+
+
             gsap.from(teks, {
                 opacity: 0,
                 y: 30,
@@ -270,8 +269,9 @@ let ctxAbout = gsap.context(() => {
             });
         });
     }
-
 }, ".khusus-about");
+
+
 
 // Hover Foto About
 const fotoAbout = document.querySelector(".khusus-about .about-foto img");
@@ -280,39 +280,44 @@ if (fotoAbout) {
         gsap.to(fotoAbout, { scale: 1.06, duration: 0.6, ease: "power2.out" });
     });
 
+
+
     fotoAbout.addEventListener("mouseleave", () => {
         gsap.to(fotoAbout, { scale: 1, duration: 0.6, ease: "power2.out" });
     });
 }
 
+
+
 // Refresh ScrollTrigger
+
 window.addEventListener("load", () => {
     ScrollTrigger.refresh();
 });
 
 
 // Background Beranda
-const bgGambar = document.querySelector('.bg-gambar');
+// const bgGambar = document.querySelector('.bg-gambar');
 
-bgGambar.addEventListener('animationend', function() {
-    bgGambar.style.animation = 'none'; 
-});
+// bgGambar.addEventListener('animationend', function() {
+//     bgGambar.style.animation = 'none'; 
+// });
 
-window.addEventListener('scroll', function() {
-    const scrollY = window.scrollY;
-    const maxScroll = 400; 
+// window.addEventListener('scroll', function() {
+//     const scrollY = window.scrollY;
+//     const maxScroll = 400; 
     
-    if (bgGambar.style.animation !== 'none') {
-        bgGambar.style.animation = 'none';
-    }
+//     if (bgGambar.style.animation !== 'none') {
+//         bgGambar.style.animation = 'none';
+//     }
 
-    const progress = Math.min(scrollY / maxScroll, 1);
+//     const progress = Math.min(scrollY / maxScroll, 1);
     
-    if (scrollY > 0) {
-        // const scaleVal = 1 - (progress * 0.15); 
-        const blurVal = progress * 10;          
-        bgGambar.style.filter = `brightness(0.3) blur(${blurVal}px)`;
-    } else {
-        bgGambar.style.filter = 'brightness(0.3) blur(0px)';
-    }
-});
+//     if (scrollY > 0) {
+//         // const scaleVal = 1 - (progress * 0.15); 
+//         const blurVal = progress * 10;          
+//         bgGambar.style.filter = `brightness(0.3) blur(${blurVal}px)`;
+//     } else {
+//         bgGambar.style.filter = 'brightness(0.3) blur(0px)';
+//     }
+// });

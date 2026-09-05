@@ -15,6 +15,7 @@ html {
 body{
     background-color: #FFFFFF;
     color: #4A4741;
+    overflow-x: hidden;
 }
 
 /* final navbar asli */
@@ -30,15 +31,43 @@ header {
     transition: transform 0.3s ease-in-out; 
 }
 
+
 .navbar {
     background-color: #ffffff;
-    border-radius: 50px;
+    border-radius: 30px;
     padding: 12px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.19);
     border: 1px solid #e0e0e0;
+}
+
+/* berger */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 48px;
+    height: 27px;
+    opacity: 0;
+    left: -10px;
+    top: -3px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #111111;
+
 }
 
 header.nav-hidden {
@@ -69,7 +98,10 @@ header.nav-hidden {
     display: flex;
     list-style: none;
     gap: 8px;
+    width: 40%;
     align-items: center;
+    justify-content: space-between;
+    
 }
 
 .icon-menu .menu {
@@ -143,17 +175,91 @@ header.nav-hidden {
     color: #000000;
 }
 
-/* navbar */
-.text-logo{
-    font-size: large;
+/* ukuran tablet */
+@media screen and (max-width: 768px) {
+    /* .menu-toggle {
+        display: flex;
+    } */
+
+    .navbar ul {
+        width: 50%;
+    }
 }
 
-section.conteiner{
+/* ukuran handphone */
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar{
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .navbar ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 50vh;
+        width: 100%;
+        opacity: 0.7;
+        margin-top: 70px;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        z-index: -1;
+        border-radius: 20x;
+        transform: translateX(120%);
+        transition: all 1;
+        opacity: 0;
+    }
+
+    .navbar ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideDown 0.3s ease-out forwards;
+    }
+
+    ul{
+        background-color: #ffffff;
+        border-radius:30px ;
+    }
+
+        .icon-menu {
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon-menu ul.slide {
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px); 
+        opacity: 0;                  
+    }
+    100% {
+        transform: translateY(0);     
+        opacity: 1;                  
+    }
+}
+
+
+/* navbar */
+
+.text-logo {
+    font-size: large;
+}
+ 
+section.conteiner {
     width: 100%;
     min-height: 100vh;
 }
-
-#beranda{
+ 
+#beranda {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     position: relative;
     overflow: hidden;
@@ -165,10 +271,12 @@ section.conteiner{
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center center;
+    min-height: 100vh;
 }
-/* ====== */
+ 
+/* ====== Background Image ====== */
 .box-hero {
-    position: relative; 
+    position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -177,45 +285,42 @@ section.conteiner{
     justify-content: center;
     overflow: hidden;
 }
-
+ 
 .bg-gambar {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    filter: brightness(0.5); 
-    z-index: 1; 
+    object-fit: cover;
+    filter: brightness(0.5);
+    z-index: 1;
     animation: zoomBlurEffect 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    /* transition: transform 0.1s ease-out, filter 0.1s ease-out; */
     transition: transform 0.1s ease-out, filter 0.1s ease-out;
 }
-
-
+ 
 @keyframes zoomBlurEffect {
     0% {
-        transform: scale(1.15); 
-        filter: brightness(0.3) blur(10px); 
+        transform: scale(1.15);
+        filter: brightness(0.3) blur(10px);
     }
     100% {
-        transform: scale(1); 
-        filter: brightness(0.3) blur(0px); 
+        transform: scale(1);
+        filter: brightness(0.3) blur(0px);
     }
 }
-
+ 
 .konten {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
     color: #ffffff;
     text-align: center;
 }
-/* ===== */
-
-.text-home{
+ 
+/* ===== Text Content ===== */
+.text-home {
     color: #ffffff;
     margin-bottom: 20%;
-    /* font-size: 2.3rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,47 +329,53 @@ section.conteiner{
     z-index: 2;
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.1s forwards;
+    padding: 0 20px;
+    max-width: 800px;
 }
-
-.text-teknik{
-    font-family: 'poppins';
+ 
+.text-teknik {
+    font-family: 'Poppins', sans-serif;
     font-size: 4.5rem;
-    /* margin-top: -10%;
-    margin: 10PX; */
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
 }
-
-.text-membangun{
+ 
+.text-membangun {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    margin: 20px 0 0 0;
+    line-height: 1.6;
 }
-
-.teknikk{
-    font-family: 'poppins';
+ 
+.teknikk {
+    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     color: transparent;
     -webkit-text-stroke: 2px #DFA122;
-    /* text-stroke: 2px #d0b101; */
+    display: inline;
 }
-
+ 
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(25px); 
+        transform: translateY(25px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);   
+        transform: translateY(0);
     }
 }
-
+ 
+/* ===== Button ===== */
 .profile-btn {
     text-decoration: none;
     background-color: #8B0000;
     color: #F7F1E8;
     font-weight: 700;
     font-size: 15px;
-    padding: 15px 50px;  /* padding buat ukuran */
+    padding: 15px 50px;
     border: none;
     border-radius: 9999px;
     cursor: pointer;
@@ -272,16 +383,110 @@ section.conteiner{
     text-align: center;
     width: fit-content;
     z-index: 2;
+    position: relative;
+    transition: background-color 0.3s ease;
 }
+ 
 .profile-btn:hover {
-  background-color: rgb(192, 42, 0);
+    background-color: rgb(192, 42, 0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
 }
-
-.text-btn{
+ 
+.profile-btn:active {
+    transform: translateY(0);
+}
+ 
+.text-btn {
     color: #e0e0e0;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
+ 
+.profile-btn:hover .text-btn {
+    color: #fff;
+}
+ 
+/* ===== TABLET (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+    #beranda {
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+ 
+    .text-home {
+        margin-bottom: 15%;
+        padding: 0 20px;
+    }
+ 
+    .text-teknik {
+        font-size: 3.5rem;
+    }
+ 
+    .text-membangun {
+        font-size: 1rem;
+    }
+ 
+    .teknikk {
+        -webkit-text-stroke: 1.5px #DFA122;
+    }
+ 
+    .profile-btn {
+        padding: 12px 40px;
+        font-size: 14px;
+    }
+}
+ 
+/* ===== MOBILE (< 768px) ===== */
+@media (max-width: 767px) {
+    section.conteiner {
+        min-height: auto;
+    }
+ 
+    #beranda {
+        min-height: 100vh;
+        padding: 30px 15px;
+        justify-content: space-around;
+    }
+ 
+    .bg-gambar {
+        animation: zoomBlurEffect 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        filter: brightness(0.4);
+    }
+ 
+    .text-home {
+        margin-bottom: 10%;
+        padding: 0 15px;
+        max-width: 100%;
+    }
+ 
+    .text-teknik {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin: 0;
+    }
+ 
+    .text-membangun {
+        font-size: 0.95rem;
+        margin: 15px 0 0 0;
+        line-height: 1.5;
+    }
+ 
+    .teknikk {
+        -webkit-text-stroke: 1px #DFA122;
+        letter-spacing: -0.5px;
+    }
+ 
+    .profile-btn {
+        padding: 12px 40px;
+        font-size: 13px;
+        margin-top: 20px;
+    }
 
+    .text-membangun p br {
+    display: none;
+    }
+}
 
 /*============= BERITA =============*/
 
@@ -1312,6 +1517,172 @@ footer{
 
 .kontak{
     min-height: 100vh;
+}
+/* responsiv hp */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 40px 0 15px; /* Memberi ruang di atas dan bawah footer */
+    }
+
+    .box-1 {
+        gap: 24px;
+        flex-wrap: wrap;
+        padding: 0 20px 30px; /* Menambah jarak bawah ke bagian info */
+    }
+
+    .sosmed a {
+        font-size: 1.6rem;
+    }
+
+    .conteiner-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px; /* Memperbesar jarak antar elemen utama (Logo - Alamat - Maps) */
+        padding: 0 20px;
+    }
+
+    .logo-footer {
+    display: flex;
+    align-items: center; /* Sejajar di tengah secara vertikal */
+    justify-content: center;
+    gap: 15px; /* Jarak antara logo dan teks */
+    }
+
+        /* Sembunyikan tag <br> yang ada tepat setelah logo agar tidak turun ke bawah */
+    .logo-footer > br {
+        display: none;
+    }
+
+    .univ {
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-align: left; /* Teks nama kampus dibuat rata kiri agar rapi di samping logo */
+    }
+    
+    .umc-footer {
+        margin-right: 0;
+    }
+
+    .garis, 
+    #garis-2 {
+        display: none;
+    }
+
+    .tengah {
+        text-align: center;
+        width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.7; /* Menambah renggang antar baris alamat */
+    }
+
+    .text-gedung {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .text-lokasi {
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .text-lokasi iframe {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        margin-top: 14px;
+    }
+
+    .copy {
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 20px 20px 10px;
+        margin-top: 40px; /* Jarak dari map ke teks copyright */
+        border-top: 1px solid rgba(255, 255, 255, 0.15); /* Garis tipis transparan sebagai pemisah */
+    }
+}
+
+/* Tablet footer */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    footer {
+        padding: 40px 0 15px;
+    }
+
+    .box-1 {
+        gap: 60px;
+        padding-bottom: 40px;
+    }
+
+    .conteiner-footer {
+        padding: 0 30px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .logo-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .univ {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .garis {
+        display: none;
+    }
+
+    #garis-2 {
+        display: block;
+        margin: 0 40px;
+        height: 160px;
+    }
+
+    .tengah {
+        font-size: 0.95rem;
+        width: 38%;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .text-gedung {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .text-lokasi {
+        font-size: 1.1rem;
+        width: 38%;
+        text-align: left;
+    }
+
+    .tengah span br {
+    display: none;
+    }
+
+    .text-lokasi iframe {
+        width: 100%;
+        height: 150px;
+        border-radius: 8px;
+        margin-top: 12px;
+    }
+
+    .copy {
+        font-size: 0.9rem;
+        margin-top: 40px;
+        padding-top: 15px;
+    }
 }
 /* BERITA TAMBAHAN BUAT GEDE KECIL BROWWWW  */
 .kotak-berita.diperbesar {

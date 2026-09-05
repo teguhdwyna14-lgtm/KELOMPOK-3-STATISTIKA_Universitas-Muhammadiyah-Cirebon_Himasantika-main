@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Website S1 Teknik Informatika
 
 Website ini merupakan website informasi untuk Program Studi S1 Teknik Informatika. Website dibuat untuk menampilkan berbagai informasi seputar program studi, seperti profil, visi dan misi, kegiatan, akademik, fasilitas, berita, serta informasi kontak.
@@ -134,7 +134,6 @@ Website S1 Teknik Informatika ini dibuat sebagai media informasi untuk membantu 
 Website menggabungkan HTML, CSS, JavaScript, GSAP, dan ScrollTrigger untuk menghasilkan tampilan yang tidak hanya berisi informasi, tetapi juga memiliki animasi dan interaksi yang membuat pengalaman pengguna menjadi lebih menarik.
 
 Website ini masih dapat dikembangkan lagi ke depannya, misalnya dengan menambahkan database untuk berita, halaman admin untuk mengelola konten, sistem login, serta fitur-fitur lainnya sesuai dengan kebutuhan program studi.
-=======
-lomba
+
 asli
 >>>>>>> 1e51a66907fdcf3636b3068f6f0612877108dc33
